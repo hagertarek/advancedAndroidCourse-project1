@@ -25,7 +25,7 @@
             android:text="@string/tv_instructions" />
 
         <Button
-            android:id="@+id/btn_pick"
+            android:id="@+id/btn_got_it"
             style="@style/RoseButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
             android:layout_marginStart="@dimen/wide_margin"
             android:layout_marginTop="@dimen/medium_margin"
             android:layout_marginEnd="@dimen/wide_margin"
-            android:text="@string/btn_pick" />
+            android:text="@string/btn_got_it" />
     </LinearLayout>
 
 </layout>

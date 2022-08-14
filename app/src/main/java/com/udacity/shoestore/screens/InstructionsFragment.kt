@@ -25,7 +25,7 @@ class InstructionsFragment : Fragment() {
             container,
             false
         )
-        binding.btnPick.setOnClickListener {
+        binding.btnGotIt.setOnClickListener {
             navController.navigate(InstructionsFragmentDirections.actionInstructionsFragmentToShoeListFragment())
         }
         return binding.root
