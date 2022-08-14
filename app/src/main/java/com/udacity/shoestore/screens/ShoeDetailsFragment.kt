@@ -24,9 +24,8 @@ class ShoeDetailsFragment : Fragment() {
         val navController = findNavController()
 
         // Inflate the layout for this fragment
-        val binding = DataBindingUtil.inflate<FragmentShoeDetailsBinding>(
+        val binding = FragmentShoeDetailsBinding.inflate(
             inflater,
-            R.layout.fragment_shoe_details,
             container,
             false
         )
@@ -42,11 +41,13 @@ class ShoeDetailsFragment : Fragment() {
             }
         })
 
-        binding.shoeListViewModel = viewModel
-        binding.lifecycleOwner = viewLifecycleOwner
+        with(binding) {
+            shoeListViewModel = viewModel
+            lifecycleOwner = viewLifecycleOwner
 
-        binding.btnCancel.setOnClickListener {
-            navController.popBackStack()
+            btnCancel.setOnClickListener {
+                navController.popBackStack()
+            }
         }
 
         return binding.root

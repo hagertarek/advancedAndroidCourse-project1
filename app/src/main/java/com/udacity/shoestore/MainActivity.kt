@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
@@ -22,16 +23,20 @@ class MainActivity : AppCompatActivity() {
         val binding =
             DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
 
-        navController = this.findNavController(R.id.myNavHostFragment)
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.myNavHostFragment) as NavHostFragment
+        navController = navHostFragment.navController
 
         appBarConfiguration =
             AppBarConfiguration.Builder(R.id.loginFragment, R.id.shoeListFragment).build()
-        binding.toolbar.setupWithNavController(navController, appBarConfiguration)
-        setSupportActionBar(binding.toolbar)
-        binding.toolbar.setNavigationOnClickListener {
-            NavigationUI.navigateUp(navController, appBarConfiguration)
-        }
 
+        with(binding){
+            toolbar.setupWithNavController(navController, appBarConfiguration)
+            setSupportActionBar(binding.toolbar)
+            toolbar.setNavigationOnClickListener {
+                NavigationUI.navigateUp(navController, appBarConfiguration)
+            }
+        }
 
     }
 

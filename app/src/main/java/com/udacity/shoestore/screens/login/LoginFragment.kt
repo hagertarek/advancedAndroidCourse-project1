@@ -4,11 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentLoginBinding
 
 class LoginFragment : Fragment() {
@@ -22,23 +20,25 @@ class LoginFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         val navController = findNavController()
-        binding = DataBindingUtil.inflate(
+        binding = FragmentLoginBinding.inflate(
             inflater,
-            R.layout.fragment_login,
             container,
             false
         )
         viewModel = ViewModelProvider(requireActivity()).get(LoginViewModel::class.java)
 
-        binding.btnCreate.setOnClickListener {
-            viewModel.login(binding.etEmail.text.toString(), binding.etPassword.text.toString())
-            navController.navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
+        with(binding) {
+            btnCreate.setOnClickListener {
+                viewModel.login(etEmail.text.toString(), etPassword.text.toString())
+                navController.navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
 
+            }
+            btnLogin.setOnClickListener {
+                viewModel.login(etEmail.text.toString(), etPassword.text.toString())
+                navController.navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
+            }
         }
-        binding.btnLogin.setOnClickListener {
-            viewModel.login(binding.etEmail.text.toString(), binding.etPassword.text.toString())
-            navController.navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
-        }
+
         return binding.root
     }
 

@@ -6,11 +6,12 @@
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/very_large_margin">
 
+<!--ScrollView accept one child view so we use LinearLayout as wrapper to our views -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
+<!--this LinearLayout used as parent for added programmatically views-->
             <LinearLayout
                 android:id="@+id/shoes_list"
                 android:layout_width="match_parent"

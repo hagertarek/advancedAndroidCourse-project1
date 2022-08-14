@@ -19,9 +19,8 @@ class InstructionsFragment : Fragment() {
         val navController = findNavController()
 
         // Inflate the layout for this fragment
-        val binding = DataBindingUtil.inflate<FragmentInstructionsBinding>(
+        val binding = FragmentInstructionsBinding.inflate(
             inflater,
-            R.layout.fragment_instructions,
             container,
             false
         )

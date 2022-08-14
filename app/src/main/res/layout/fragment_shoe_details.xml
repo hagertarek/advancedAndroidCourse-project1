@@ -8,7 +8,7 @@
             name="shoeListViewModel"
             type="com.udacity.shoestore.screens.shoelist.ShoeListViewModel" />
     </data>
-
+    <!--this page is quite complex with combination of vertical and horizontal views so we use ConstraintLayout to accomplish the desired design-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">

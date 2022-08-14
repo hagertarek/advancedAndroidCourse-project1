@@ -2,7 +2,6 @@ package com.udacity.shoestore.screens.shoelist
 
 import android.os.Bundle
 import android.view.*
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -28,9 +27,8 @@ class ShoeListFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         navController = findNavController()
-        binding = DataBindingUtil.inflate(
+        binding = FragmentShoeListBinding.inflate(
             inflater,
-            R.layout.fragment_shoe_list,
             container,
             false
         )
